@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Penthouse frente al mar en Barcelona, Barceloneta. 180m², 4 habitaciones, 3 baños, terraza 60m². Precio: 1.250.000€" />
+  <title>Penthouse frente al mar · Barcelona — Nidus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="propiedad.css" />
+</head>
+<body class="page-propiedad">
+
+  <nav class="nav nav--scrolled" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="nav__logo" aria-label="Nidus inicio">
+      <span class="nav__logo-mark">N</span><span class="nav__logo-text">idus</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html#buscar" class="nav__link">Buscar</a></li>
+      <li><a href="index.html#destacados" class="nav__link">Destacados</a></li>
+      <li><a href="index.html#servicios" class="nav__link">Servicios</a></li>
+      <li><a href="index.html#contacto" class="nav__link">Contacto</a></li>
+      <li><a href="index.html#acceso" class="nav__link nav__link--cta">Acceder</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- HERO GALLERY -->
+    <section class="prop-hero" aria-label="Galería de la propiedad">
+      <div class="prop-gallery">
+        <div class="gallery-main" aria-label="Imagen principal">
+          <div class="gallery-img gallery-img--1"></div>
+          <div class="gallery-actions">
+            <button class="gallery-btn" id="gallery-prev" aria-label="Imagen anterior">←</button>
+            <span class="gallery-counter" aria-live="polite">1 / 5</span>
+            <button class="gallery-btn" id="gallery-next" aria-label="Imagen siguiente">→</button>
+          </div>
+          <button class="gallery-expand" aria-label="Ver galería completa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            Ver galería
+          </button>
+        </div>
+        <div class="gallery-thumbs" aria-label="Miniaturas de galería">
+          <div class="gallery-thumb gallery-thumb--active gallery-img--1" aria-label="Imagen 1" tabindex="0" role="button"></div>
+          <div class="gallery-thumb gallery-img--2" aria-label="Imagen 2" tabindex="0" role="button"></div>
+          <div class="gallery-thumb gallery-img--3" aria-label="Imagen 3" tabindex="0" role="button"></div>
+          <div class="gallery-thumb gallery-img--4" aria-label="Imagen 4" tabindex="0" role="button"></div>
+          <div class="gallery-thumb gallery-img--5" aria-label="Ver más imágenes" tabindex="0" role="button">
+            <div class="thumb-more">+3 más</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <div class="prop-layout" aria-label="Detalles de la propiedad">
+
+      <!-- LEFT: DETAILS -->
+      <div class="prop-detail">
+
+        <!-- BREADCRUMB -->
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <ol role="list">
+            <li><a href="index.html">Inicio</a></li>
+            <li aria-hidden="true">›</li>
+            <li><a href="#">Venta</a></li>
+            <li aria-hidden="true">›</li>
+            <li><a href="#">Barcelona</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page">Penthouse Barceloneta</li>
+          </ol>
+        </nav>
+
+        <div class="prop-title-row">
+          <div>
+            <div class="prop-tags">
+              <span class="prop-tag prop-tag--premium">Premium</span>
+              <span class="prop-tag">Venta</span>
+              <span class="prop-tag prop-tag--new">Nueva publicación</span>
+            </div>
+            <h1 class="prop-title">Penthouse frente al mar</h1>
+            <p class="prop-address">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Passeig Marítim, 142 · Barceloneta, Barcelona
+            </p>
+          </div>
+          <div class="prop-actions-top">
+            <button class="action-btn" aria-label="Compartir propiedad" title="Compartir">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
+            <button class="action-btn" id="fav-btn" aria-label="Guardar en favoritos" aria-pressed="false" title="Favorito">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECS BAR -->
+        <div class="prop-specs-bar" role="list" aria-label="Características principales">
+          <div class="spec-item" role="listitem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span class="spec-val">180 m²</span>
+            <span class="spec-key">Superficie</span>
+          </div>
+          <div class="spec-item" role="listitem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span class="spec-val">4</span>
+            <span class="spec-key">Habitaciones</span>
+          </div>
+          <div class="spec-item" role="listitem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12H19M5 12a7 7 0 0 1 7-7v7H5z"/><path d="M19 12v4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4v-4"/></svg>
+            <span class="spec-val">3</span>
+            <span class="spec-key">Baños</span>
+          </div>
+          <div class="spec-item" role="listitem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+            <span class="spec-val">60 m²</span>
+            <span class="spec-key">Terraza</span>
+          </div>
+          <div class="spec-item" role="listitem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span class="spec-val">2</span>
+            <span class="spec-key">Garajes</span>
+          </div>
+          <div class="spec-item" role="listitem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            <span class="spec-val">5ª</span>
+            <span class="spec-key">Planta</span>
+          </div>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <section class="prop-section" aria-label="Descripción">
+          <h2 class="prop-section-title">Sobre esta propiedad</h2>
+          <div class="prop-description" id="prop-desc">
+            <p>Un penthouse de diseño excepcional en primera línea de mar, con vistas panorámicas de 180º al Mediterráneo. Diseñado por el estudio Ventura Arquitectes en 2021 para un cliente internacional, esta propiedad representa lo mejor de la arquitectura contemporánea fusionada con el estilo de vida mediterráneo.</p>
+            <p>La planta principal alberga un gran salón-comedor de 65m² con techos de 3.2m, una cocina de isla italiana totalmente equipada y dos habitaciones en suite. La planta superior, accesible por escalera de diseño, comprende dos habitaciones adicionales y la terraza principal con jacuzzi exterior y zona de cine al aire libre.</p>
+            <p>El edificio cuenta con conserjería 24h, piscina comunitaria en azotea y spa privado. La propiedad se entrega amueblada con piezas de diseño originales, negociables por separado. Certificación energética A+.</p>
+          </div>
+          <button class="btn-expand" id="expand-desc" aria-expanded="false" aria-controls="prop-desc">
+            Leer más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="prop-section" aria-label="Características detalladas">
+          <h2 class="prop-section-title">Características</h2>
+          <div class="features-grid">
+            <div class="feature-group">
+              <h3 class="feature-group-title">Interiores</h3>
+              <ul class="feature-list" role="list">
+                <li>Suelo de mármol calacatta</li>
+                <li>Domótica Crestron completa</li>
+                <li>Climatización por suelo radiante</li>
+                <li>Cocina Boffi con electrodomésticos Miele</li>
+                <li>Armarios a medida en todas las habitaciones</li>
+                <li>Bodega climatizada 500 botellas</li>
+              </ul>
+            </div>
+            <div class="feature-group">
+              <h3 class="feature-group-title">Exteriores</h3>
+              <ul class="feature-list" role="list">
+                <li>Terraza de 60m² con Jacuzzi</li>
+                <li>Cine exterior con proyector</li>
+                <li>Jardín vertical con riego automático</li>
+                <li>Zona de cocina exterior BBQ</li>
+              </ul>
+            </div>
+            <div class="feature-group">
+              <h3 class="feature-group-title">Edificio</h3>
+              <ul class="feature-list" role="list">
+                <li>Conserjería 24 horas</li>
+                <li>Piscina en azotea</li>
+                <li>Spa y sauna privados</li>
+                <li>2 plazas de garaje</li>
+                <li>Trastero 25m²</li>
+                <li>Seguridad perimetral</li>
+              </ul>
+            </div>
+            <div class="feature-group">
+              <h3 class="feature-group-title">Eficiencia</h3>
+              <ul class="feature-list" role="list">
+                <li>Certificación energética A+</li>
+                <li>Paneles solares propios</li>
+                <li>Ventanas triple acristalamiento</li>
+                <li>Recuperador de calor</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIRTUAL TOUR -->
+        <section class="prop-section" aria-label="Visita virtual">
+          <h2 class="prop-section-title">Visita virtual 360°</h2>
+          <div class="virtual-tour" role="img" aria-label="Vista previa de visita virtual 360 grados">
+            <div class="virtual-tour__preview">
+              <div class="vt-dots" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <button class="vt-play" aria-label="Iniciar visita virtual">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <p class="vt-label">Visita virtual interactiva disponible</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- MAP -->
+        <section class="prop-section" aria-label="Ubicación en mapa">
+          <h2 class="prop-section-title">Ubicación</h2>
+          <div class="prop-map" role="img" aria-label="Mapa de ubicación de la propiedad en Barceloneta, Barcelona">
+            <div class="prop-map__bg"></div>
+            <div class="prop-map__pin" aria-hidden="true">
+              <div class="pin-dot"></div>
+              <div class="pin-ring"></div>
+            </div>
+            <div class="prop-map__label">Barceloneta, Barcelona</div>
+          </div>
+          <div class="poi-grid" aria-label="Puntos de interés cercanos">
+            <div class="poi">
+              <span class="poi__icon" aria-hidden="true">🚇</span>
+              <span class="poi__name">Metro Barceloneta</span>
+              <span class="poi__dist">4 min</span>
+            </div>
+            <div class="poi">
+              <span class="poi__icon" aria-hidden="true">🏖️</span>
+              <span class="poi__name">Playa Barceloneta</span>
+              <span class="poi__dist">2 min</span>
+            </div>
+            <div class="poi">
+              <span class="poi__icon" aria-hidden="true">🛒</span>
+              <span class="poi__name">Mercado Santa Caterina</span>
+              <span class="poi__dist">8 min</span>
+            </div>
+            <div class="poi">
+              <span class="poi__icon" aria-hidden="true">✈️</span>
+              <span class="poi__name">Aeropuerto El Prat</span>
+              <span class="poi__dist">25 min</span>
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /prop-detail -->
+
+      <!-- RIGHT: SIDEBAR -->
+      <aside class="prop-sidebar" aria-label="Información de precio y contacto">
+
+        <!-- PRICE CARD -->
+        <div class="price-card">
+          <div class="price-card__header">
+            <p class="price-card__ref">Ref. NID-2024-0847</p>
+            <div class="price-card__price-row">
+              <p class="price-card__price">€ 1.250.000</p>
+              <span class="price-tag">Venta</span>
+            </div>
+            <p class="price-card__sqm">€ 6.944 / m²</p>
+          </div>
+
+          <div class="price-card__agent">
+            <div class="agent-avatar" aria-hidden="true">MA</div>
+            <div>
+              <p class="agent-name">Mireia Alcántara</p>
+              <p class="agent-role">Agente Premium · Barcelona</p>
+            </div>
+            <div class="agent-rating" aria-label="Valoración del agente: 4.9 de 5">⭐ 4.9</div>
+          </div>
+
+          <div class="price-card__actions">
+            <button class="btn btn--primary btn--full" id="visit-btn">Solicitar visita</button>
+            <button class="btn btn--ghost btn--full" style="color:var(--c-ink); border-color:rgba(74,69,64,.2)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.79-.79a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+              Llamar ahora
+            </button>
+          </div>
+
+          <form class="visit-form" id="visit-form" aria-label="Formulario para solicitar visita" hidden>
+            <h4>¿Cuándo prefieres la visita?</h4>
+            <div class="visit-dates" role="group" aria-label="Fechas disponibles">
+              <button type="button" class="visit-date" aria-pressed="false">Lun 15</button>
+              <button type="button" class="visit-date" aria-pressed="false">Mar 16</button>
+              <button type="button" class="visit-date" aria-pressed="false">Jue 18</button>
+              <button type="button" class="visit-date" aria-pressed="false">Vie 19</button>
+            </div>
+            <div class="visit-times" role="group" aria-label="Horarios disponibles">
+              <button type="button" class="visit-time" aria-pressed="false">10:00</button>
+              <button type="button" class="visit-time" aria-pressed="false">12:00</button>
+              <button type="button" class="visit-time" aria-pressed="false">16:00</button>
+              <button type="button" class="visit-time" aria-pressed="false">18:00</button>
+            </div>
+            <input type="text" placeholder="Tu nombre" aria-label="Nombre" style="width:100%;padding:.7rem;margin-bottom:.8rem;border:1px solid rgba(74,69,64,.15);border-radius:6px;font:inherit;font-size:.9rem" />
+            <input type="tel" placeholder="+34 600 000 000" aria-label="Teléfono" style="width:100%;padding:.7rem;margin-bottom:1rem;border:1px solid rgba(74,69,64,.15);border-radius:6px;font:inherit;font-size:.9rem" />
+            <button type="submit" class="btn btn--primary btn--full">Confirmar visita</button>
+          </form>
+
+          <p class="price-card__note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Sin comisión de agencia para el comprador
+          </p>
+        </div>
+
+        <!-- MORTGAGE CALCULATOR -->
+        <div class="mortgage-calc" aria-label="Calculadora de hipoteca">
+          <h3 class="mortgage-calc__title">Calcula tu hipoteca</h3>
+          <div class="mortgage-calc__row">
+            <label for="mc-entrada">Entrada (20%)</label>
+            <div class="mc-input-wrap">
+              <input type="number" id="mc-entrada" value="250000" min="0" max="1250000" step="5000" aria-label="Importe de entrada en euros" />
+              <span>€</span>
+            </div>
+          </div>
+          <div class="mortgage-calc__row">
+            <label for="mc-plazo">Plazo</label>
+            <div class="mc-input-wrap">
+              <input type="number" id="mc-plazo" value="30" min="5" max="40" step="1" aria-label="Plazo en años" />
+              <span>años</span>
+            </div>
+          </div>
+          <div class="mortgage-calc__row">
+            <label for="mc-tipo">Tipo de interés</label>
+            <div class="mc-input-wrap">
+              <input type="number" id="mc-tipo" value="3.5" min="0.1" max="10" step="0.1" aria-label="Tipo de interés anual en porcentaje" />
+              <span>%</span>
+            </div>
+          </div>
+          <div class="mortgage-result" aria-live="polite" aria-label="Cuota mensual estimada">
+            <p class="mortgage-result__label">Cuota mensual estimada</p>
+            <p class="mortgage-result__value" id="mc-result">€ 4.491</p>
+            <p class="mortgage-result__sub" id="mc-capital">Capital a financiar: € 1.000.000</p>
+          </div>
+          <p class="mortgage-disclaimer">Cálculo orientativo. Consulte con su entidad bancaria.</p>
+        </div>
+
+        <!-- SIMILAR PROPERTIES -->
+        <div class="similar-props" aria-label="Propiedades similares">
+          <h3 class="similar-props__title">Propiedades similares</h3>
+          <article class="sim-prop" aria-label="Propiedad similar: Ático en Diagonal Mar">
+            <div class="sim-prop__img sim-img--1"></div>
+            <div class="sim-prop__body">
+              <h4>Ático en Diagonal Mar</h4>
+              <p>150 m² · 3 hab · € 980.000</p>
+              <a href="#" class="sim-prop__link">Ver →</a>
+            </div>
+          </article>
+          <article class="sim-prop" aria-label="Propiedad similar: Piso en Port Olímpic">
+            <div class="sim-prop__img sim-img--2"></div>
+            <div class="sim-prop__body">
+              <h4>Piso en Port Olímpic</h4>
+              <p>110 m² · 3 hab · € 720.000</p>
+              <a href="#" class="sim-prop__link">Ver →</a>
+            </div>
+          </article>
+          <article class="sim-prop" aria-label="Propiedad similar: Dúplex en Poblenou">
+            <div class="sim-prop__img sim-img--3"></div>
+            <div class="sim-prop__body">
+              <h4>Dúplex en Poblenou</h4>
+              <p>130 m² · 3 hab · € 650.000</p>
+              <a href="#" class="sim-prop__link">Ver →</a>
+            </div>
+          </article>
+        </div>
+
+      </aside><!-- /prop-sidebar -->
+    </div><!-- /prop-layout -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__bottom" style="max-width:1200px;margin:0 auto;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,191,176,.06)">
+      <a href="index.html" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--c-cream)">
+        <span class="nav__logo-mark">N</span><span class="nav__logo-text">idus</span>
+      </a>
+      <p style="font-family:var(--ff-mono);font-size:.68rem;color:rgba(201,191,176,.3);letter-spacing:.06em">© 2025 Nidus Inmobiliaria S.L. — Ficticio</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="propiedad.js"></script>
+</body>
+</html>
