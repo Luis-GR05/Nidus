@@ -120,8 +120,39 @@ legend{font-size:.8rem;font-weight:600;color:var(--piedra);margin-bottom:8px}
 .bloque-cabeza{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,56px)}
 .bloque-dos{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,7vw,120px);align-items:start}
 .bloque-dos > .titular,.bloque-dos > div:first-child{position:sticky;top:calc(var(--cab) + 24px)}
-[data-rev]{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform 1.1s var(--suave)}
+[data-rev]{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform 1.2s var(--suave);transition-delay:calc(var(--i,0) * 90ms)}
 [data-rev].visto{opacity:1;transform:none}
+[data-rev=titular]{opacity:1;transform:none;clip-path:inset(0 0 100% 0);transition:clip-path 1.3s var(--suave),translate 1.3s var(--suave);translate:0 .35em}
+[data-rev=titular].visto{clip-path:inset(-10% -5% -20% -5%);translate:0 0}
+[data-rev=tarjeta] .tarjeta-foto{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s var(--suave);transition-delay:calc(var(--i,0) * 90ms)}
+[data-rev=tarjeta].visto .tarjeta-foto{clip-path:inset(0)}
+[data-rev=tarjeta] .tarjeta-foto img{transform:scale(1.25)}
+[data-rev=tarjeta].visto .tarjeta-foto img{transform:scale(1)}
+[data-rev=tarjeta].visto:hover .tarjeta-foto img,.tarjeta-activa[data-rev].visto .tarjeta-foto img{transform:scale(1.06)}
+.ciudad[data-rev] .ciudad-foto{clip-path:inset(100% 0 0 0 round 999px 999px 0 0);transition:clip-path 1.5s var(--suave);transition-delay:calc(var(--i,0) * 110ms)}
+.ciudad[data-rev].visto .ciudad-foto{clip-path:inset(0 round 999px 999px 0 0)}
+.ciudad-foto img{scale:1.18;translate:0 var(--py,0px)}
+.servicios li{transition:opacity .9s ease,transform 1.2s var(--suave),padding .6s var(--suave),background .4s;transition-delay:calc(var(--i,0) * 70ms),calc(var(--i,0) * 70ms),0s,0s}
+.servicios li:hover{padding-left:18px;background:linear-gradient(90deg,var(--salvia-clara),transparent 70%)}
+.boton{position:relative;overflow:hidden;isolation:isolate}
+.boton-oscuro::before{content:'';position:absolute;inset:0;background:var(--salvia);border-radius:inherit;transform:translateY(101%);transition:transform .55s var(--suave);z-index:-1}
+.boton-oscuro:hover::before{transform:none}
+.boton-oscuro:hover{background:var(--bosque);color:var(--tinta)}
+.telon{position:fixed;inset:0;z-index:2000;background:var(--bosque);transform-origin:top;transition:transform .7s var(--suave);pointer-events:none}
+.telon.fuera{transform:scaleY(0)}
+.telon.entra{transform-origin:bottom;transform:scaleY(1);transition-duration:.42s}
+.cinta{overflow:hidden;border-block:1px solid var(--raya);padding:18px 0}
+.cinta-pista{display:flex;width:max-content;animation:cinta 60s linear infinite}
+.cinta:hover .cinta-pista{animation-play-state:paused}
+.cinta span{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.6rem,3.4vw,3rem);line-height:1;padding:0 .6em;display:flex;align-items:center;gap:1.2em;white-space:nowrap}
+.cinta span::after{content:'';width:.28em;height:.28em;border-radius:50%;background:var(--salvia)}
+@keyframes cinta{to{transform:translateX(-50%)}}
+.puntero{position:fixed;top:0;left:0;z-index:500;width:86px;height:86px;margin:-43px 0 0 -43px;border-radius:50%;background:var(--bosque);color:var(--crema);display:grid;place-items:center;font-size:.8rem;font-weight:600;pointer-events:none;scale:0;transition:scale .45s var(--suave)}
+.puntero.activo{scale:1}
+.tas-cifra b{font-weight:300;font-variant-numeric:tabular-nums}
+.opinion p{transition:opacity .5s,translate .7s var(--suave)}
+.opinion.cambia p,.opinion.cambia footer{opacity:0;translate:0 14px}
+.opinion footer{transition:opacity .5s .08s,translate .7s var(--suave) .08s}
 
 /* Tarjetas */
 .tarjeta{position:relative;display:grid;gap:14px;align-content:start}
@@ -321,6 +352,6 @@ body[data-pagina=buscar] .cab{position:absolute;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .hero-titular i{transform:none}.hero-arco{clip-path:none}
+  .hero-titular i{transform:none}.hero-arco{clip-path:none}[data-rev],[data-rev] *{clip-path:none!important;translate:none!important}.cinta-pista{animation:none}.telon{display:none}
 }
 .marcas label,.busca-op label,.segmento label{position:relative}

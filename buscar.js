@@ -1,6 +1,13 @@
 /* NIDUS — buscador con filtros, orden y mapa sincronizado */
 'use strict';
 (function () {
+  // Teselas gratuitas y sin clave: CARTO sobre OpenStreetMap; si fallan, OpenStreetMap directo.
+  function capaBase(mapa) {
+    const pie = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+    const carto = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 19, subdomains: 'abcd', attribution: pie + ' &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(mapa);
+    let fallos = 0;
+    carto.on('tileerror', () => { if (++fallos === 4) { carto.remove(); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: pie }).addTo(mapa); } });
+  }
   const { D, $, $$, esc, euro, precio, tarjeta, aviso, mios, guardar } = window.Nidus;
   const P = D.PROPIEDADES, f = $('#filtros');
   const CAMPOS = ['op', 'q', 'ciudad', 'tipo', 'min', 'max', 'hab', 'm2'];
@@ -52,8 +59,7 @@
     if (!window.L) { $('#mapa').innerHTML = '<p class="mapa-fallo">No se pudo cargar el mapa.</p>'; return; }
     mapa = L.map('mapa', { scrollWheelZoom: true, zoomControl: false, attributionControl: true }).setView([40.2, -3.7], 6);
     L.control.zoom({ position: 'bottomright' }).addTo(mapa);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 19, subdomains: 'abcd',
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(mapa);
+    capaBase(mapa);
   }
   const corto = p => p.op === 'alquiler' ? euro(p.precio) : (p.precio >= 1e6 ? (p.precio / 1e6).toFixed(2).replace('.', ',').replace(/,?0+$/, '') + ' M€' : Math.round(p.precio / 1000) + ' mil €');
   function pintarMapa(lista) {

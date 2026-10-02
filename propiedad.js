@@ -1,6 +1,13 @@
 /* NIDUS — ficha de inmueble */
 'use strict';
 (function () {
+  // Teselas gratuitas y sin clave: CARTO sobre OpenStreetMap; si fallan, OpenStreetMap directo.
+  function capaBase(mapa) {
+    const pie = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+    const carto = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 19, subdomains: 'abcd', attribution: pie + ' &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(mapa);
+    let fallos = 0;
+    carto.on('tileerror', () => { if (++fallos === 4) { carto.remove(); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: pie }).addTo(mapa); } });
+  }
   const { D, $, $$, esc, num, euro, precio, habTxt, propiedad, tarjeta, botonFav, aviso, observar, mios, guardar, usuario } = window.Nidus;
   const main = $('#contenido');
   const p = propiedad(new URLSearchParams(location.search).get('id'));
@@ -205,8 +212,7 @@
   /* Mapa */
   if (window.L) {
     const m = L.map('mapa-ficha', { scrollWheelZoom: false, zoomControl: true }).setView([p.lat, p.lng], 15);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 19, subdomains: 'abcd',
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(m);
+    capaBase(m);
     L.circle([p.lat, p.lng], { radius: 180, color: '#24332b', weight: 1.5, fillColor: '#7a9e7e', fillOpacity: 0.3 }).addTo(m);
   } else $('#mapa-ficha').innerHTML = '<p class="mapa-fallo">No se pudo cargar el mapa.</p>';
 

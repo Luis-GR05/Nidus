@@ -175,12 +175,32 @@
     pintar(); m.showModal();
   }
 
-  /* ───── Aparición al hacer scroll (una sola vez, discreta) ───── */
+  /* ───── Movimiento: apariciones, escalonado y transición entre páginas ───── */
+  const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function observar(raiz = document) {
+    // Titulares y tarjetas se preparan solos; el resto se marca con data-rev en el HTML.
+    $$('.titular:not([data-rev]), .ficha-titulo:not([data-rev])', raiz).forEach(t => t.setAttribute('data-rev', 'titular'));
+    $$('.rejilla, .carril', raiz).forEach(g => $$('.tarjeta:not([data-rev])', g).forEach((t, i) => { t.setAttribute('data-rev', 'tarjeta'); t.style.setProperty('--i', i % 6); }));
+    $$('.ciudad[data-rev], .servicios li[data-rev]', raiz).forEach((e, i) => e.style.setProperty('--i', i));
     const els = $$('[data-rev]:not(.visto)', raiz);
-    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(e => e.classList.add('visto')); return; }
-    const io = observar.io || (observar.io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('visto'); observar.io.unobserve(x.target); } }), { rootMargin: '0px 0px -8% 0px' }));
+    if (!('IntersectionObserver' in window) || quieto) { els.forEach(e => e.classList.add('visto')); return; }
+    const io = observar.io || (observar.io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('visto'); observar.io.unobserve(x.target); } }), { rootMargin: '0px 0px -6% 0px' }));
     els.forEach(e => io.observe(e));
+  }
+  function transiciones() {
+    if (quieto) return;
+    const telon = Object.assign(document.createElement('div'), { className: 'telon' }); telon.setAttribute('aria-hidden', 'true');
+    document.body.append(telon);
+    requestAnimationFrame(() => telon.classList.add('fuera'));
+    addEventListener('pageshow', e => { if (e.persisted) telon.classList.add('fuera'); });
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href]');
+      if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank' || a.closest('.leaflet-container')) return;
+      const u = new URL(a.href, location.href);
+      if (u.origin !== location.origin || u.protocol === 'tel:' || (u.pathname === location.pathname && u.hash)) return;
+      e.preventDefault(); telon.classList.remove('fuera'); telon.classList.add('entra');
+      setTimeout(() => { location.href = a.href; }, 420);
+    });
   }
 
   /* ───── Imágenes: respaldo ───── */
@@ -201,6 +221,6 @@
   window.Nidus = { D, $, $$, esc, num, euro, precio, habTxt, propiedad, emailOk, tarjeta, botonFav, aviso, observar, abrirAcceso,
     usuario, mios, guardar, cuenta, esFav, alternarFav, estado: () => E };
 
-  const arrancar = () => { pintarCabecera(); pintarPie(); observar(); document.documentElement.classList.add('listo'); };
+  const arrancar = () => { pintarCabecera(); pintarPie(); observar(); transiciones(); document.documentElement.classList.add('listo'); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrancar); else arrancar();
 })();

@@ -61,6 +61,22 @@
       <span class="ciudad-nombre">${c}</span><span class="ciudad-dato">${n} inmuebles. ${esc(d.frase)}</span></a>`;
   }).join('');
 
+  const barrios = [...new Set(P.map(p => p.barrio.split(',')[0]))];
+  $('#cinta').innerHTML = [0, 1].map(() => barrios.map(b => `<span>${esc(b)}</span>`).join('')).join('');
+  const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!quieto) {
+    const fotos = $$('.ciudad-foto img'); let pendiente = false;
+    const mover = () => { pendiente = false; fotos.forEach(im => { const r = im.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; im.style.setProperty('--py', (((r.top + r.height / 2) / innerHeight - 0.5) * -34).toFixed(1) + 'px'); }); };
+    addEventListener('scroll', () => { if (!pendiente) { pendiente = true; requestAnimationFrame(mover); } }, { passive: true }); mover();
+    if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      const punt = Object.assign(document.createElement('div'), { className: 'puntero', textContent: 'Ver' }); punt.setAttribute('aria-hidden', 'true'); document.body.append(punt);
+      let x = 0, y = 0, tx = 0, ty = 0, vivo = false;
+      const paso = () => { x += (tx - x) * 0.18; y += (ty - y) * 0.18; punt.style.transform = `translate(${x}px,${y}px)`; if (vivo) requestAnimationFrame(paso); };
+      carril.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; const sobre = !!e.target.closest('.tarjeta-foto'); punt.classList.toggle('activo', sobre); if (sobre && !vivo) { vivo = true; x = tx; y = ty; paso(); } });
+      carril.addEventListener('mouseleave', () => { punt.classList.remove('activo'); vivo = false; });
+    }
+  }
+
   /* Servicios */
   $('#lista-servicios').innerHTML = D.SERVICIOS.map(s => `<li data-rev><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></li>`).join('');
 
@@ -68,14 +84,20 @@
   const tf = $('#tas-form'); const FACTOR = { Piso: 1, 'Ático': 1.2, Loft: 1.1, Estudio: 1.08, Casa: 1.05, Villa: 1.15 };
   $('#tas-ciudad').innerHTML = Object.keys(D.CIUDADES).map(c => `<option>${c}</option>`).join('');
   $('#tas-tipo').innerHTML = D.TIPOS.map(t => `<option>${t}</option>`).join('');
-  let ultima = null;
+  let ultima = null, cifras = [0, 0], cuadro = 0;
   function tasar() {
     const f = new FormData(tf); const m2 = Math.min(900, Math.max(20, Number(f.get('m2')) || 0));
     const extra = f.getAll('x').reduce((a, v) => a + Number(v), 0);
     const pm2 = D.CIUDADES[f.get('ciudad')].m2 * FACTOR[f.get('tipo')] * Number(f.get('estado')) * (1 + extra);
     const centro = pm2 * m2; ultima = { ciudad: f.get('ciudad'), tipo: f.get('tipo'), m2, min: Math.round(centro * 0.93 / 1000) * 1000, max: Math.round(centro * 1.07 / 1000) * 1000, pm2: Math.round(pm2) };
-    $('#tas-resultado').innerHTML = `<span class="tas-cifra">${euro(ultima.min)}<i>a</i>${euro(ultima.max)}</span>
+    const previa = cifras.slice(); cifras = [ultima.min, ultima.max];
+    $('#tas-resultado').innerHTML = `<span class="tas-cifra"><b></b><i>a</i><b></b></span>
       <span class="tas-detalle">${num(ultima.pm2)} €/m² para ${ultima.tipo.toLowerCase()} de ${m2} m² en ${esc(ultima.ciudad)}</span>`;
+    const bs = $$('#tas-resultado b'); cancelAnimationFrame(cuadro); const t0 = performance.now();
+    const tic = t => { const k = quieto ? 1 : Math.min(1, (t - t0) / 600), e = 1 - Math.pow(1 - k, 3);
+      bs.forEach((b, i) => { b.textContent = euro(Math.round((previa[i] + (cifras[i] - previa[i]) * e) / 1000) * 1000); });
+      if (k < 1) cuadro = requestAnimationFrame(tic); };
+    cuadro = requestAnimationFrame(tic);
   }
   tf.addEventListener('input', tasar); tasar();
   const u0 = usuario(); if (u0) { tf.nombre.value = u0.nombre; tf.contacto.value = u0.email; }
@@ -96,7 +118,7 @@
     op.innerHTML = `<p>«${esc(o.texto)}»</p><footer><strong>${esc(o.autor)}</strong><span>${esc(o.rol)}</span></footer>`;
     opNav.innerHTML = D.OPINIONES.map((x, i) => `<button type="button" aria-pressed="${i === iOp}" data-i="${i}">${esc(x.autor.split(' ')[0])}</button>`).join('');
   }
-  opNav.onclick = e => { const b = e.target.closest('button'); if (b) { iOp = Number(b.dataset.i); pintarOpinion(); } };
+  opNav.onclick = e => { const b = e.target.closest('button'); if (!b || Number(b.dataset.i) === iOp) return; iOp = Number(b.dataset.i); op.classList.add('cambia'); setTimeout(() => { pintarOpinion(); op.classList.remove('cambia'); }, 380); };
   pintarOpinion();
 
   /* Contacto */
