@@ -1,617 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nidus — Encuentra tu espacio. Plataforma inmobiliaria de nueva generación que redefine la búsqueda de tu próximo hogar." />
-  <meta name="keywords" content="inmobiliaria, pisos, casas, alquiler, venta, propiedades" />
-  <meta name="author" content="Nidus" />
-  <meta property="og:title" content="Nidus — Tu próximo espacio te espera" />
-  <meta property="og:description" content="Plataforma inmobiliaria de nueva generación." />
-  <meta property="og:type" content="website" />
-  <title>Nidus — Tu próximo espacio te espera</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nidus — Pisos, casas y áticos en venta y alquiler en Madrid, Barcelona, Valencia, Sevilla y Málaga. Busca en el mapa, reserva visitas y calcula tu hipoteca.">
+  <meta property="og:title" content="Nidus — El espacio que defines tú">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f3efe6">
+  <title>Nidus — El espacio que defines tú</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-pagina="inicio">
+  <div data-nidus="cabecera"></div>
 
-  <!-- NAV -->
-  <nav class="nav" role="navigation" aria-label="Navegación principal">
-    <a href="#inicio" class="nav__logo" aria-label="Nidus inicio">
-      <span class="nav__logo-mark">N</span>
-      <span class="nav__logo-text">idus</span>
-    </a>
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span>
-    </button>
-    <ul class="nav__links" id="nav-menu" role="list">
-      <li><a href="#buscar" class="nav__link">Buscar</a></li>
-      <li><a href="#destacados" class="nav__link">Destacados</a></li>
-      <li><a href="#servicios" class="nav__link">Servicios</a></li>
-      <li><a href="#contacto" class="nav__link">Contacto</a></li>
-      <li><a href="#acceso" class="nav__link nav__link--cta">Acceder</a></li>
-    </ul>
-  </nav>
-
-  <!-- LANDING SCROLL CONTAINER -->
-  <main class="scroll-root" id="inicio" role="main">
-
-    <!-- PANEL 1: HERO -->
-    <section class="panel panel--hero" aria-label="Inicio">
-      <div class="panel__bg panel__bg--hero">
-        <div class="grain"></div>
-        <div class="grid-lines" aria-hidden="true"></div>
-      </div>
-      <div class="hero__content">
-        <p class="hero__eyebrow" aria-hidden="true">— Nueva generación inmobiliaria</p>
-        <h1 class="hero__headline">
-          <span class="hero__line" data-line="1">El espacio</span>
-          <span class="hero__line hero__line--italic" data-line="2">que defines</span>
-          <span class="hero__line" data-line="3">tú.</span>
-        </h1>
-        <p class="hero__sub">Nidus conecta personas con lugares que tienen alma. No vendemos metros cuadrados, encontramos dónde perteneces.</p>
-        <div class="hero__actions">
-          <a href="#buscar" class="btn btn--primary">Explorar propiedades</a>
-          <a href="#servicios" class="btn btn--ghost">Cómo funciona</a>
-        </div>
-        <div class="hero__stats" aria-label="Estadísticas">
-          <div class="stat">
-            <span class="stat__num" data-target="4800">0</span>
-            <span class="stat__label">Propiedades activas</span>
+  <main id="contenido">
+    <section class="hero">
+      <div class="hero-texto">
+        <h1 class="hero-titular"><span><i>El espacio</i></span><span><i>que defines tú.</i></span></h1>
+        <p class="hero-entrada" id="hero-entrada"></p>
+        <form class="busca" id="busca" action="buscar.html" role="search" aria-label="Buscar inmuebles">
+          <div class="busca-op" role="radiogroup" aria-label="Operación">
+            <label><input type="radio" name="op" value="venta" checked><span>Comprar</span></label>
+            <label><input type="radio" name="op" value="alquiler"><span>Alquilar</span></label>
           </div>
-          <div class="stat__divider" aria-hidden="true"></div>
-          <div class="stat">
-            <span class="stat__num" data-target="98">0</span>
-            <span class="stat__label">% satisfacción</span>
-          </div>
-          <div class="stat__divider" aria-hidden="true"></div>
-          <div class="stat">
-            <span class="stat__num" data-target="12">0</span>
-            <span class="stat__label">Ciudades</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero__visual" aria-hidden="true">
-        <div class="hero__card-float hero__card-float--1">
-          <div class="float-card">
-            <div class="float-card__img fc1"></div>
-            <div class="float-card__body">
-              <span class="float-card__tag">Venta</span>
-              <p class="float-card__title">Ático con terraza panorámica</p>
-              <p class="float-card__price">€ 485.000</p>
-            </div>
-          </div>
-        </div>
-        <div class="hero__card-float hero__card-float--2">
-          <div class="float-card float-card--sm">
-            <div class="float-card__body">
-              <span class="float-card__badge">⚡ Nueva hoy</span>
-              <p class="float-card__mini">Loft industrial · 89m²</p>
-            </div>
-          </div>
-        </div>
-        <div class="hero__card-float hero__card-float--3">
-          <div class="float-card float-card--sm">
-            <div class="float-card__body">
-              <span class="float-card__badge float-card__badge--green">✓ Reservado</span>
-              <p class="float-card__mini">Villa con piscina · Marbella</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="scroll-hint" aria-label="Desplaza hacia abajo">
-        <span class="scroll-hint__bar"></span>
-        <span class="scroll-hint__text">scroll</span>
-      </div>
-    </section>
-
-    <!-- PANEL 2: BUSCAR -->
-    <section class="panel panel--search" id="buscar" aria-label="Búsqueda de propiedades">
-      <div class="panel__bg panel__bg--search" aria-hidden="true"></div>
-      <div class="search__container">
-        <div class="search__header">
-          <span class="section-tag">002 / Busca</span>
-          <h2 class="search__title">¿Qué tipo<br /><em>de espacio</em> buscas?</h2>
-        </div>
-        <div class="search__tabs" role="tablist" aria-label="Tipo de operación">
-          <button class="stab stab--active" role="tab" aria-selected="true" data-tab="comprar">Comprar</button>
-          <button class="stab" role="tab" aria-selected="false" data-tab="alquilar">Alquilar</button>
-          <button class="stab" role="tab" aria-selected="false" data-tab="obra-nueva">Obra nueva</button>
-        </div>
-        <form class="search__form" role="search" aria-label="Buscar propiedades">
-          <div class="search__fields">
-            <div class="field">
-              <label class="field__label" for="ciudad">Ciudad o zona</label>
-              <input class="field__input" type="text" id="ciudad" name="ciudad" placeholder="Madrid, Barcelona, Valencia…" autocomplete="off" />
-            </div>
-            <div class="field">
-              <label class="field__label" for="tipo">Tipo</label>
-              <select class="field__input field__input--select" id="tipo" name="tipo">
-                <option value="">Cualquier tipo</option>
-                <option>Piso</option>
-                <option>Casa</option>
-                <option>Ático</option>
-                <option>Loft</option>
-                <option>Villa</option>
-                <option>Local</option>
-              </select>
-            </div>
-            <div class="field">
-              <label class="field__label" for="precio">Precio máximo</label>
-              <input class="field__input" type="text" id="precio" name="precio" placeholder="Sin límite" />
-            </div>
-            <button type="submit" class="btn btn--search" aria-label="Buscar propiedades">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              Buscar
-            </button>
-          </div>
-          <div class="search__filters">
-            <button type="button" class="filter-chip filter-chip--active">Cualquier tamaño</button>
-            <button type="button" class="filter-chip">+1 hab</button>
-            <button type="button" class="filter-chip">+2 hab</button>
-            <button type="button" class="filter-chip">+3 hab</button>
-            <button type="button" class="filter-chip">Con terraza</button>
-            <button type="button" class="filter-chip">Con garaje</button>
-            <button type="button" class="filter-chip">Mascota OK</button>
-            <button type="button" class="filter-chip">Piscina</button>
+          <div class="busca-campos">
+            <label>Dónde<select name="ciudad" id="busca-ciudad"><option value="">Todas las ciudades</option></select></label>
+            <label>Qué<select name="tipo" id="busca-tipo"><option value="">Cualquier tipo</option></select></label>
+            <label>Hasta<select name="max" id="busca-max"></select></label>
+            <button class="boton boton-oscuro" type="submit" id="busca-boton">Buscar</button>
           </div>
         </form>
-        <div class="search__map-preview" aria-label="Mapa de propiedades disponibles">
-          <div class="map-mockup">
-            <div class="map-dot" style="top:35%;left:40%"><span class="map-dot__label">€320k</span></div>
-            <div class="map-dot map-dot--alt" style="top:55%;left:60%"><span class="map-dot__label">€175k</span></div>
-            <div class="map-dot" style="top:25%;left:65%"><span class="map-dot__label">€540k</span></div>
-            <div class="map-dot map-dot--alt" style="top:70%;left:30%"><span class="map-dot__label">€98k</span></div>
-            <div class="map-dot" style="top:45%;left:20%"><span class="map-dot__label">€215k</span></div>
-            <div class="map-grid-overlay" aria-hidden="true"></div>
-            <p class="map-placeholder-text">Vista de mapa interactiva</p>
-          </div>
-        </div>
       </div>
+      <figure class="hero-arco" id="hero-arco"></figure>
     </section>
 
-    <!-- PANEL 3: DESTACADOS -->
-    <section class="panel panel--featured" id="destacados" aria-label="Propiedades destacadas">
-      <div class="panel__bg panel__bg--featured" aria-hidden="true"></div>
-      <div class="featured__container">
-        <div class="featured__header">
-          <span class="section-tag section-tag--light">003 / Destacados</span>
-          <h2 class="featured__title">Espacios<br /><em>seleccionados</em></h2>
-          <a href="#" class="featured__link" aria-label="Ver todas las propiedades">Ver todo →</a>
+    <section class="bloque" id="destacados">
+      <header class="bloque-cabeza">
+        <h2 class="titular">Seleccionados esta semana</h2>
+        <div class="carril-nav">
+          <button type="button" class="redondo" id="carril-prev" aria-label="Anteriores">‹</button>
+          <button type="button" class="redondo" id="carril-next" aria-label="Siguientes">›</button>
+          <a class="enlace" href="buscar.html">Ver todo el catálogo</a>
         </div>
-        <div class="properties-grid" role="list" aria-label="Lista de propiedades destacadas">
-
-          <article class="prop-card prop-card--large" role="listitem" aria-label="Propiedad: Penthouse frente al mar">
-            <div class="prop-card__img prop-card__img--1">
-              <span class="prop-card__badge prop-card__badge--premium">Premium</span>
-              <button class="prop-card__fav" aria-label="Guardar como favorito" aria-pressed="false">♡</button>
-            </div>
-            <div class="prop-card__body">
-              <div class="prop-card__meta">
-                <span class="prop-card__type">Penthouse</span>
-                <span class="prop-card__loc">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  Barcelona, Barceloneta
-                </span>
-              </div>
-              <h3 class="prop-card__title">Penthouse frente al mar</h3>
-              <div class="prop-card__specs">
-                <span>180 m²</span>
-                <span>4 hab</span>
-                <span>3 baños</span>
-                <span>Terraza 60m²</span>
-              </div>
-              <div class="prop-card__footer">
-                <p class="prop-card__price">€ 1.250.000</p>
-                <a href="propiedad.html" class="btn btn--card">Ver propiedad</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="prop-card" role="listitem" aria-label="Propiedad: Loft industrial reformado">
-            <div class="prop-card__img prop-card__img--2">
-              <span class="prop-card__badge">Alquiler</span>
-              <button class="prop-card__fav" aria-label="Guardar como favorito" aria-pressed="false">♡</button>
-            </div>
-            <div class="prop-card__body">
-              <div class="prop-card__meta">
-                <span class="prop-card__type">Loft</span>
-                <span class="prop-card__loc">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  Madrid, Malasaña
-                </span>
-              </div>
-              <h3 class="prop-card__title">Loft industrial reformado</h3>
-              <div class="prop-card__specs">
-                <span>89 m²</span>
-                <span>1 hab</span>
-                <span>1 baño</span>
-              </div>
-              <div class="prop-card__footer">
-                <p class="prop-card__price">€ 1.850 <small>/mes</small></p>
-                <a href="propiedad.html" class="btn btn--card">Ver propiedad</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="prop-card" role="listitem" aria-label="Propiedad: Villa con jardín y piscina">
-            <div class="prop-card__img prop-card__img--3">
-              <span class="prop-card__badge prop-card__badge--new">Nueva hoy</span>
-              <button class="prop-card__fav" aria-label="Guardar como favorito" aria-pressed="false">♡</button>
-            </div>
-            <div class="prop-card__body">
-              <div class="prop-card__meta">
-                <span class="prop-card__type">Villa</span>
-                <span class="prop-card__loc">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  Marbella, Costa del Sol
-                </span>
-              </div>
-              <h3 class="prop-card__title">Villa con jardín y piscina</h3>
-              <div class="prop-card__specs">
-                <span>320 m²</span>
-                <span>5 hab</span>
-                <span>4 baños</span>
-                <span>Piscina</span>
-              </div>
-              <div class="prop-card__footer">
-                <p class="prop-card__price">€ 875.000</p>
-                <a href="propiedad.html" class="btn btn--card">Ver propiedad</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="prop-card" role="listitem" aria-label="Propiedad: Estudio céntrico minimalista">
-            <div class="prop-card__img prop-card__img--4">
-              <button class="prop-card__fav" aria-label="Guardar como favorito" aria-pressed="false">♡</button>
-            </div>
-            <div class="prop-card__body">
-              <div class="prop-card__meta">
-                <span class="prop-card__type">Estudio</span>
-                <span class="prop-card__loc">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  Valencia, Ruzafa
-                </span>
-              </div>
-              <h3 class="prop-card__title">Estudio céntrico minimalista</h3>
-              <div class="prop-card__specs">
-                <span>42 m²</span>
-                <span>Estudio</span>
-                <span>1 baño</span>
-              </div>
-              <div class="prop-card__footer">
-                <p class="prop-card__price">€ 780 <small>/mes</small></p>
-                <a href="propiedad.html" class="btn btn--card">Ver propiedad</a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
+      </header>
+      <div class="carril" id="carril" tabindex="0" aria-label="Inmuebles destacados"></div>
     </section>
 
-    <!-- PANEL 4: SERVICIOS -->
-    <section class="panel panel--services" id="servicios" aria-label="Nuestros servicios">
-      <div class="panel__bg panel__bg--services" aria-hidden="true"></div>
-      <div class="services__container">
-        <div class="services__header">
-          <span class="section-tag">004 / Servicios</span>
-          <h2 class="services__title">Todo lo que<br /><em>necesitas</em>,<br />en un solo lugar</h2>
-        </div>
-        <div class="services__grid" role="list">
-          <div class="service-item" role="listitem">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <h3 class="service-item__title">Compra y venta</h3>
-            <p class="service-item__desc">Asesoramiento experto en cada paso, desde la búsqueda hasta la firma. Sin letra pequeña.</p>
-            <a href="#" class="service-item__link">Saber más →</a>
-          </div>
-          <div class="service-item" role="listitem">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <h3 class="service-item__title">Alquiler gestionado</h3>
-            <p class="service-item__desc">Gestionamos tu propiedad de alquiler de forma integral: inquilinos, pagos, mantenimiento.</p>
-            <a href="#" class="service-item__link">Saber más →</a>
-          </div>
-          <div class="service-item" role="listitem">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3 class="service-item__title">Financiación</h3>
-            <p class="service-item__desc">Comparamos las mejores hipotecas del mercado y te acompañamos hasta el banco.</p>
-            <a href="#" class="service-item__link">Saber más →</a>
-          </div>
-          <div class="service-item" role="listitem">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            </div>
-            <h3 class="service-item__title">Tasación online</h3>
-            <p class="service-item__desc">Obtén el valor real de tu propiedad en menos de 2 minutos. Informe detallado incluido.</p>
-            <a href="#" class="service-item__link">Saber más →</a>
-          </div>
-          <div class="service-item" role="listitem">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            </div>
-            <h3 class="service-item__title">Visitas virtuales 360°</h3>
-            <p class="service-item__desc">Recorre cada propiedad desde tu casa con nuestra tecnología de visita inmersiva.</p>
-            <a href="#" class="service-item__link">Saber más →</a>
-          </div>
-          <div class="service-item" role="listitem">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="service-item__title">Agentes expertos</h3>
-            <p class="service-item__desc">Un agente dedicado exclusivamente a ti, con conocimiento profundo de tu zona objetivo.</p>
-            <a href="#" class="service-item__link">Saber más →</a>
-          </div>
-        </div>
-      </div>
+    <section class="bloque" id="ciudades">
+      <header class="bloque-cabeza"><h2 class="titular">Cinco ciudades,<br>agentes de barrio</h2></header>
+      <div class="ciudades" id="lista-ciudades"></div>
     </section>
 
-    <!-- PANEL 5: CIUDADES -->
-    <section class="panel panel--cities" aria-label="Ciudades disponibles">
-      <div class="panel__bg panel__bg--cities" aria-hidden="true"></div>
-      <div class="cities__container">
-        <div class="cities__header">
-          <span class="section-tag section-tag--light">005 / Ciudades</span>
-          <h2 class="cities__title">Estamos donde<br /><em>tú quieres</em> estar</h2>
-        </div>
-        <div class="cities__grid" role="list" aria-label="Ciudades disponibles">
-          <a href="#" class="city-card" role="listitem" aria-label="Explorar propiedades en Madrid">
-            <div class="city-card__img city-card__img--madrid">
-              <div class="city-card__overlay"></div>
-            </div>
-            <div class="city-card__body">
-              <h3 class="city-card__name">Madrid</h3>
-              <span class="city-card__count">1.248 propiedades</span>
-            </div>
-          </a>
-          <a href="#" class="city-card" role="listitem" aria-label="Explorar propiedades en Barcelona">
-            <div class="city-card__img city-card__img--bcn">
-              <div class="city-card__overlay"></div>
-            </div>
-            <div class="city-card__body">
-              <h3 class="city-card__name">Barcelona</h3>
-              <span class="city-card__count">987 propiedades</span>
-            </div>
-          </a>
-          <a href="#" class="city-card" role="listitem" aria-label="Explorar propiedades en Valencia">
-            <div class="city-card__img city-card__img--vlc">
-              <div class="city-card__overlay"></div>
-            </div>
-            <div class="city-card__body">
-              <h3 class="city-card__name">Valencia</h3>
-              <span class="city-card__count">612 propiedades</span>
-            </div>
-          </a>
-          <a href="#" class="city-card" role="listitem" aria-label="Explorar propiedades en Sevilla">
-            <div class="city-card__img city-card__img--sev">
-              <div class="city-card__overlay"></div>
-            </div>
-            <div class="city-card__body">
-              <h3 class="city-card__name">Sevilla</h3>
-              <span class="city-card__count">433 propiedades</span>
-            </div>
-          </a>
-          <a href="#" class="city-card" role="listitem" aria-label="Explorar propiedades en Málaga">
-            <div class="city-card__img city-card__img--mlg">
-              <div class="city-card__overlay"></div>
-            </div>
-            <div class="city-card__body">
-              <h3 class="city-card__name">Málaga</h3>
-              <span class="city-card__count">521 propiedades</span>
-            </div>
-          </a>
-          <a href="#" class="city-card city-card--more" role="listitem" aria-label="Ver todas las ciudades">
-            <div class="city-card__body city-card__body--more">
-              <span class="city-card__more-icon">+</span>
-              <h3 class="city-card__name">7 ciudades más</h3>
-              <span class="city-card__count">Ver todas →</span>
-            </div>
-          </a>
-        </div>
-      </div>
+    <section class="bloque bloque-dos" id="servicios">
+      <h2 class="titular">Lo que hacemos por ti</h2>
+      <ol class="servicios" id="lista-servicios"></ol>
     </section>
 
-    <!-- PANEL 6: TESTIMONIOS -->
-    <section class="panel panel--testimonials" aria-label="Testimonios de clientes">
-      <div class="panel__bg panel__bg--testimonials" aria-hidden="true"></div>
-      <div class="testimonials__container">
-        <span class="section-tag">006 / Opiniones</span>
-        <h2 class="testimonials__title">Lo que dicen<br /><em>las personas</em></h2>
-        <div class="testimonials__track" role="list" aria-label="Testimonios">
-          <blockquote class="testimonial" role="listitem">
-            <div class="testimonial__stars" aria-label="5 estrellas">★★★★★</div>
-            <p class="testimonial__text">"Encontré mi apartamento en menos de tres semanas. El equipo de Nidus entendió exactamente lo que buscaba y no perdimos tiempo con visitas que no encajaban."</p>
-            <footer class="testimonial__footer">
-              <div class="testimonial__avatar" aria-hidden="true">CM</div>
-              <div>
-                <cite class="testimonial__name">Carmen Molina</cite>
-                <span class="testimonial__detail">Compradora · Madrid</span>
-              </div>
-            </footer>
-          </blockquote>
-          <blockquote class="testimonial" role="listitem">
-            <div class="testimonial__stars" aria-label="5 estrellas">★★★★★</div>
-            <p class="testimonial__text">"Vendí mi piso en 11 días. No creía que fuera posible, pero el precio final superó mis expectativas. Transparencia total durante todo el proceso."</p>
-            <footer class="testimonial__footer">
-              <div class="testimonial__avatar" aria-hidden="true">JR</div>
-              <div>
-                <cite class="testimonial__name">Javier Romero</cite>
-                <span class="testimonial__detail">Vendedor · Barcelona</span>
-              </div>
-            </footer>
-          </blockquote>
-          <blockquote class="testimonial" role="listitem">
-            <div class="testimonial__stars" aria-label="5 estrellas">★★★★★</div>
-            <p class="testimonial__text">"La gestión del alquiler de mi propiedad es impecable. Cobro puntual cada mes, sin llamadas de inquilinos, sin problemas. Ojalá los hubiera conocido antes."</p>
-            <footer class="testimonial__footer">
-              <div class="testimonial__avatar" aria-hidden="true">AL</div>
-              <div>
-                <cite class="testimonial__name">Ana Llorente</cite>
-                <span class="testimonial__detail">Propietaria · Valencia</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-        <div class="testimonials__nav" aria-label="Controles de testimonios">
-          <button class="t-nav t-nav--prev" aria-label="Testimonio anterior">←</button>
-          <div class="t-dots">
-            <button class="t-dot t-dot--active" aria-label="Testimonio 1"></button>
-            <button class="t-dot" aria-label="Testimonio 2"></button>
-            <button class="t-dot" aria-label="Testimonio 3"></button>
-          </div>
-          <button class="t-nav t-nav--next" aria-label="Siguiente testimonio">→</button>
-        </div>
+    <section class="tasacion" id="tasacion">
+      <div class="tasacion-texto">
+        <h2 class="titular">¿Cuánto vale<br>tu casa hoy?</h2>
+        <p>Una horquilla orientativa a partir del precio medio por metro en tu ciudad y el estado de la vivienda. Para una cifra en firme, un agente la visita sin coste.</p>
+        <output class="tasacion-resultado" id="tas-resultado" for="tas-form" aria-live="polite"></output>
       </div>
+      <form class="tasacion-form" id="tas-form" novalidate>
+        <div class="fila-2">
+          <label>Ciudad<select name="ciudad" id="tas-ciudad"></select></label>
+          <label>Tipo<select name="tipo" id="tas-tipo"></select></label>
+        </div>
+        <div class="fila-2">
+          <label>Superficie (m²)<input name="m2" type="number" min="20" max="900" value="90" inputmode="numeric"></label>
+          <label>Estado<select name="estado">
+            <option value="0.82">Para reformar</option><option value="1" selected>Buen estado</option>
+            <option value="1.12">Reformado</option><option value="1.2">Obra nueva</option></select></label>
+        </div>
+        <fieldset><legend>Tiene</legend>
+          <div class="marcas">
+            <label><input type="checkbox" name="x" value="0.05"><span>Terraza</span></label>
+            <label><input type="checkbox" name="x" value="0.03"><span>Garaje</span></label>
+            <label><input type="checkbox" name="x" value="0.03" checked><span>Ascensor</span></label>
+            <label><input type="checkbox" name="x" value="0.04"><span>Vistas</span></label>
+          </div>
+        </fieldset>
+        <div class="tas-contacto">
+          <p>¿Quieres la tasación en firme? Un agente te llama en 48 horas.</p>
+          <div class="fila-2">
+            <label>Nombre<input name="nombre" autocomplete="name"></label>
+            <label>Teléfono o email<input name="contacto" autocomplete="email"></label>
+          </div>
+          <p class="form-error" role="alert"></p>
+          <button class="boton boton-claro" type="submit">Pedir tasación en firme</button>
+        </div>
+      </form>
     </section>
 
-    <!-- PANEL 7: CTA CONTACTO -->
-    <section class="panel panel--cta" id="contacto" aria-label="Contacto">
-      <div class="panel__bg panel__bg--cta" aria-hidden="true"></div>
-      <div class="cta__container">
-        <div class="cta__content">
-          <span class="section-tag section-tag--light">007 / Contacto</span>
-          <h2 class="cta__title">¿Tienes una<br /><em>propiedad</em><br />que vender?</h2>
-          <p class="cta__sub">Tasación gratuita en 48 horas. Sin compromisos. Nuestros agentes estudian tu caso personalmente.</p>
-          <div class="cta__actions">
-            <a href="#" class="btn btn--light">Quiero vender</a>
-            <a href="#" class="btn btn--outline-light">Hablar con un agente</a>
-          </div>
-        </div>
-        <form class="contact-form" aria-label="Formulario de contacto">
-          <h3 class="contact-form__title">Cuéntanos sobre tu propiedad</h3>
-          <div class="contact-form__field">
-            <label for="cf-nombre">Nombre completo</label>
-            <input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
-          </div>
-          <div class="contact-form__field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="tu@email.com" autocomplete="email" required />
-          </div>
-          <div class="contact-form__field">
-            <label for="cf-tel">Teléfono</label>
-            <input type="tel" id="cf-tel" name="telefono" placeholder="+34 600 000 000" autocomplete="tel" />
-          </div>
-          <div class="contact-form__field">
-            <label for="cf-msg">Cuéntanos</label>
-            <textarea id="cf-msg" name="mensaje" rows="3" placeholder="Tipo de propiedad, zona, situación…"></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">Enviar consulta</button>
-        </form>
-      </div>
+    <section class="bloque opiniones" id="opiniones">
+      <blockquote class="opinion" id="opinion" aria-live="polite"></blockquote>
+      <div class="opinion-nav" id="opinion-nav" role="group" aria-label="Opiniones"></div>
     </section>
 
+    <section class="bloque bloque-dos" id="contacto">
+      <div>
+        <h2 class="titular">Habla con quien conoce tu barrio</h2>
+        <ul class="agentes" id="lista-agentes"></ul>
+      </div>
+      <form class="contacto-form" id="contacto-form" novalidate>
+        <label>Qué necesitas<select name="motivo"><option>Quiero comprar</option><option>Quiero alquilar</option><option>Quiero vender</option><option>Quiero poner mi piso en alquiler</option><option>Otra consulta</option></select></label>
+        <div class="fila-2">
+          <label>Nombre<input name="nombre" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label>Mensaje<textarea name="mensaje" rows="4" required placeholder="Zona, presupuesto, plazos…"></textarea></label>
+        <p class="form-error" role="alert"></p>
+        <button class="boton boton-oscuro" type="submit">Enviar consulta</button>
+      </form>
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="#inicio" class="footer__logo" aria-label="Nidus inicio">
-          <span class="nav__logo-mark">N</span><span class="nav__logo-text">idus</span>
-        </a>
-        <p class="footer__tagline">El espacio que defines tú.</p>
-        <div class="footer__social" aria-label="Redes sociales">
-          <a href="#" aria-label="Instagram de Nidus" class="social-link">IG</a>
-          <a href="#" aria-label="LinkedIn de Nidus" class="social-link">LI</a>
-          <a href="#" aria-label="Twitter de Nidus" class="social-link">TW</a>
-        </div>
-      </div>
-      <nav class="footer__nav" aria-label="Navegación del pie de página">
-        <div class="footer__col">
-          <h4>Buscar</h4>
-          <ul>
-            <li><a href="#">Pisos en venta</a></li>
-            <li><a href="#">Casas en alquiler</a></li>
-            <li><a href="#">Obra nueva</a></li>
-            <li><a href="#">Locales comerciales</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Servicios</h4>
-          <ul>
-            <li><a href="#">Vender mi piso</a></li>
-            <li><a href="#">Alquilar mi propiedad</a></li>
-            <li><a href="#">Tasación gratuita</a></li>
-            <li><a href="#">Hipotecas</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Empresa</h4>
-          <ul>
-            <li><a href="#">Sobre Nidus</a></li>
-            <li><a href="#">Trabaja con nosotros</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Prensa</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Privacidad</a></li>
-            <li><a href="#">Términos de uso</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Accesibilidad</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="footer__bottom">
-      <p>© 2025 Nidus Inmobiliaria S.L. — Empresa ficticia creada con fines demostrativos.</p>
-      <p class="footer__cert">API Turismo · Reg. Inmobiliario Nº DM-48291-X</p>
-    </div>
-  </footer>
-
-  <!-- MODAL ACCESO -->
-  <div class="modal" id="acceso" role="dialog" aria-modal="true" aria-label="Acceder a Nidus" hidden>
-    <div class="modal__backdrop"></div>
-    <div class="modal__panel">
-      <button class="modal__close" aria-label="Cerrar modal">✕</button>
-      <div class="modal__tabs" role="tablist">
-        <button class="modal__tab modal__tab--active" role="tab" aria-selected="true" data-modal-tab="login">Entrar</button>
-        <button class="modal__tab" role="tab" aria-selected="false" data-modal-tab="register">Crear cuenta</button>
-      </div>
-      <form class="modal__form" id="modal-login" aria-label="Formulario de inicio de sesión">
-        <div class="modal__field">
-          <label for="m-email">Email</label>
-          <input type="email" id="m-email" placeholder="tu@email.com" required />
-        </div>
-        <div class="modal__field">
-          <label for="m-pass">Contraseña</label>
-          <input type="password" id="m-pass" placeholder="••••••••" required />
-        </div>
-        <button type="submit" class="btn btn--primary btn--full">Entrar</button>
-        <a href="#" class="modal__forgot">¿Olvidaste tu contraseña?</a>
-      </form>
-      <form class="modal__form" id="modal-register" hidden aria-label="Formulario de registro">
-        <div class="modal__field">
-          <label for="r-nombre">Nombre</label>
-          <input type="text" id="r-nombre" placeholder="Tu nombre" required />
-        </div>
-        <div class="modal__field">
-          <label for="r-email">Email</label>
-          <input type="email" id="r-email" placeholder="tu@email.com" required />
-        </div>
-        <div class="modal__field">
-          <label for="r-pass">Contraseña</label>
-          <input type="password" id="r-pass" placeholder="Mínimo 8 caracteres" required />
-        </div>
-        <button type="submit" class="btn btn--primary btn--full">Crear cuenta gratis</button>
-      </form>
-      <div class="modal__divider"><span>o</span></div>
-      <button class="btn btn--social" type="button">
-        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        Continuar con Google
-      </button>
-    </div>
-  </div>
-
+  <div data-nidus="pie"></div>
+  <script src="datos.js"></script>
   <script src="app.js"></script>
+  <script src="inicio.js"></script>
 </body>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3efe6">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <meta name="description" content="Busca pisos, casas y áticos en venta y alquiler con filtros y mapa. Nidus.">
+  <title>Buscar inmuebles — Nidus</title>
+</head>
+<body data-pagina="buscar" data-cab="cab-fija">
+  <div data-nidus="cabecera"></div>
+  <main id="contenido" class="buscar">
+    <form class="filtros" id="filtros" aria-label="Filtros de búsqueda">
+      <div class="filtros-linea">
+        <div class="segmento" role="radiogroup" aria-label="Operación">
+          <label><input type="radio" name="op" value=""><span>Todo</span></label>
+          <label><input type="radio" name="op" value="venta"><span>Comprar</span></label>
+          <label><input type="radio" name="op" value="alquiler"><span>Alquilar</span></label>
+        </div>
+        <label class="f-campo f-texto"><span class="solo-lector">Barrio, calle o referencia</span><input type="search" name="q" placeholder="Barrio, calle o referencia" autocomplete="off"></label>
+        <label class="f-campo"><span class="solo-lector">Ciudad</span><select name="ciudad"><option value="">Todas las ciudades</option></select></label>
+        <label class="f-campo"><span class="solo-lector">Tipo</span><select name="tipo"><option value="">Cualquier tipo</option></select></label>
+        <button type="button" class="boton boton-linea" id="mas-filtros" aria-expanded="false" aria-controls="filtros-extra">Más filtros <span id="n-filtros"></span></button>
+      </div>
+      <div class="filtros-extra" id="filtros-extra" hidden>
+        <label>Precio mínimo<input type="number" name="min" min="0" step="50" inputmode="numeric" placeholder="Sin mínimo"></label>
+        <label>Precio máximo<input type="number" name="max" min="0" step="50" inputmode="numeric" placeholder="Sin máximo"></label>
+        <label>Dormitorios<select name="hab"><option value="">Indiferente</option><option value="1">1 o más</option><option value="2">2 o más</option><option value="3">3 o más</option><option value="4">4 o más</option></select></label>
+        <label>Superficie mínima<select name="m2"><option value="">Indiferente</option><option value="50">50 m²</option><option value="80">80 m²</option><option value="120">120 m²</option><option value="200">200 m²</option></select></label>
+        <fieldset><legend>Imprescindible</legend><div class="marcas" id="f-extras"></div></fieldset>
+      </div>
+    </form>
+
+    <div class="resultados">
+      <section class="lista" aria-label="Resultados">
+        <header class="lista-cabeza">
+          <h1 class="lista-titulo" id="lista-titulo" aria-live="polite"></h1>
+          <div class="lista-acciones">
+            <button type="button" class="enlace" id="guardar-busqueda">Guardar búsqueda</button>
+            <button type="button" class="enlace" id="limpiar" hidden>Quitar filtros</button>
+            <label class="orden"><span>Ordenar</span><select id="orden">
+              <option value="recientes">Más recientes</option><option value="precio-asc">Precio: de menor a mayor</option>
+              <option value="precio-desc">Precio: de mayor a menor</option><option value="m2-desc">Más grandes</option><option value="pm2-asc">Menor precio por m²</option></select></label>
+          </div>
+        </header>
+        <div class="rejilla" id="rejilla"></div>
+        <div class="sin-resultados" id="sin-resultados" hidden>
+          <h2>Nada encaja con todos los filtros a la vez</h2>
+          <p id="sugerencia"></p>
+          <button type="button" class="boton boton-oscuro" id="limpiar-2">Quitar filtros</button>
+        </div>
+      </section>
+      <aside class="mapa-caja" aria-label="Mapa de resultados"><div id="mapa"></div></aside>
+    </div>
+    <button type="button" class="boton boton-oscuro ver-mapa" id="ver-mapa">Ver mapa</button>
+  </main>
+  <div data-nidus="pie"></div>
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="datos.js"></script>
+  <script src="app.js"></script>
+  <script src="buscar.js"></script>
+</body>
+</html>
