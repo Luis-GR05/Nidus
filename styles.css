@@ -355,3 +355,17 @@ body[data-pagina=buscar] .cab{position:absolute;transform:none}
   .hero-titular i{transform:none}.hero-arco{clip-path:none}[data-rev],[data-rev] *{clip-path:none!important;translate:none!important}.cinta-pista{animation:none}.telon{display:none}
 }
 .marcas label,.busca-op label,.segmento label{position:relative}
+
+/* Sin cursor de texto fuera de campos editables */
+html {
+  caret-color: transparent;
+  cursor: default;
+}
+
+:where(input, textarea, select, [contenteditable]:not([contenteditable="false"])) {
+  caret-color: auto;
+}
+
+:where(input:not([type="checkbox"], [type="radio"], [type="range"], [type="submit"], [type="button"], [type="reset"], [type="file"], [type="color"]), textarea, [contenteditable]:not([contenteditable="false"])) {
+  cursor: text;
+}
